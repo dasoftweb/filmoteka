@@ -1,0 +1,43 @@
+body {
+  font-style: normal;
+  //   font-family: $main-font;
+}
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.list {
+  list-style-type: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.accent {
+  //   color: $accent-color;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}

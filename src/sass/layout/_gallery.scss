@@ -1,0 +1,83 @@
+.gallery-list {
+  margin: 0 auto;
+}
+
+.film-card__info {
+  padding-top: 10px;
+
+  font-family: Roboto;
+  font-weight: 500;
+  font-style: normal;
+  size: 12px;
+  line-height: 1.333;
+}
+
+.film-card__name {
+  color: #000000;
+}
+
+.poster {
+  border-radius: 5px;
+}
+
+.film-card__genre {
+  color: #ff6b08;
+}
+
+@media screen and (max-width: 767px) {
+  .gallery-list__item:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  .gallery-list {
+    width: 280px;
+  }
+
+  .gallery-list__img {
+    width: 280px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .cards-container {
+    width: 618px;
+    margin: 0 auto;
+  }
+  .gallery-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .gallery-list__item {
+    width: 293px;
+    margin-bottom: 30px;
+
+    &:nth-child(even) {
+      margin-left: 30px;
+    }
+  }
+  .gallery-list__item:not(:last-child) {
+    margin-bottom: 30px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .cards-container {
+    width: 882px;
+    margin: 0 auto;
+  }
+
+  .gallery-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .gallery-list__item {
+    width: 274px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+
+    &:nth-child(3n) {
+      margin-right: 0px;
+    }
+    &:nth-last-child(-n + 3) {
+      margin-bottom: 0;
+    }
+  }
+}

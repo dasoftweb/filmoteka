@@ -1,0 +1,17 @@
+{{#each this}}
+<div class="film-card" data-id="{{id}}">
+    <img class="poster" src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{title}}"
+        data-source="https://image.tmdb.org/t/p/w500{{backdrop_path}}" />
+
+    <div class="film-card__info">
+        <h3 class="film-card__name">
+            {{title}}
+        </h3>
+        <p class="film-card__genre">
+            {{#each genres}}
+            {{name}}
+            {{/each}}| {{release_date}}
+        </p>
+    </div>
+</div>
+{{/each}}
