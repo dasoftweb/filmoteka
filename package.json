@@ -1,5 +1,5 @@
 {
-  "name": "Filmoteka",
+  "name": "filmoteka",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dasoftweb/Filmoteka.git"
+    "url": "git+https://github.com/dasoftweb/filmoteka.git"
   },
   "keywords": [],
   "author": "Kyryl Shevchenko <dasoftweb@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dasoftweb/Filmoteka/issues"
+    "url": "https://github.com/dasoftweb/filmoteka/issues"
   },
-  "homepage": "https://github.com/dasoftweb/Filmoteka#readme",
+  "homepage": "https://github.com/dasoftweb/filmoteka#readme",
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/plugin-proposal-class-properties": "^7.10.4",

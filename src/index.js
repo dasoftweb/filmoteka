@@ -2,7 +2,7 @@ import './sass/main.scss';
 import './js/modal';
 import './js/pagination';
 import './js/search';
-import './js/api';
+import './js/apiService';
 import headerMarkup from './partials/header.html';
 import galleryMarkup from './partials/gallery.html';
 import footerMarkup from './partials/footer.html';
