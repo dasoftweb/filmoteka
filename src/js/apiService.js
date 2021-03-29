@@ -9,7 +9,7 @@ export default class MovieApiService {
     this.page = 1;
   }
 
-  //Возвращаем список фильмов
+  //Возвращаем популярные фильмы
 
   fetchPopularMovies() {
     const url = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}`;
@@ -20,7 +20,18 @@ export default class MovieApiService {
       .catch(error => console.log(error));
   }
 
-  //Возвращаем список жанров
+  //Возвращаем поисковый запрос
+
+  fetchSearchQuery() {
+    const url = `${BASE_URL}/search/movie?api_key=${API_KEY}&page=${this.page}&query=${this.searchQuery}`;
+
+    return fetch(url)
+      .then(response => response.json())
+      .then(response => response.results)
+      .catch(error => console.log(error));
+  }
+
+  //Возвращаем списока жанров
 
   fetchGenres() {
     const url = `${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`;
@@ -31,12 +42,10 @@ export default class MovieApiService {
       .catch(error => console.log(error));
   }
 
-  //Приводим к требованиям
+  //Приводим к требованиям gallery
 
-  normalizeMovies() {
-    // this.fetchPopularMovies().then(this.renderMovieCard);
-
-    this.fetchPopularMovies()
+  normalizeMoviesList(rawdata) {
+    rawdata
       .then(results => {
         //Затем делам запрос к жанрам
         return this.fetchGenres().then(genres => {
@@ -61,6 +70,15 @@ export default class MovieApiService {
     galleryRef.insertAdjacentHTML('beforeend', galleryTemplate(results));
   }
 
+  getMovie(searchQuery) {
+    this.searchQuery = searchQuery;
+    return this.normalizeMoviesList(this.fetchSearchQuery(searchQuery));
+  }
+
+  getPopularMovies() {
+    return this.normalizeMoviesList(this.fetchPopularMovies());
+  }
+
   increamentPage() {
     this.page += 1;
   }
@@ -68,17 +86,14 @@ export default class MovieApiService {
   resetPage() {
     this.page = 1;
   }
-  get query() {
-    return this.searchQuery;
-  }
-
-  set query(newQuery) {
-    this.searchQuery = newQuery;
-  }
 }
 
 const movieApiServie = new MovieApiService();
 
 const galleryRef = document.querySelector('.gallery-list');
 
-movieApiServie.normalizeMovies();
+//Вызов Search
+movieApiServie.getMovie('deep');
+
+//Вызов Popular
+movieApiServie.getPopularMovies();
